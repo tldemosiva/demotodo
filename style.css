@@ -3,9 +3,10 @@ body {
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Align to top for Kanban view */
     height: 100vh;
     margin: 0;
+    padding-top: 20px; /* Add padding to the top */
 }
 
 .container {
@@ -13,7 +14,8 @@ body {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 800px; /* Wider for Kanban */
+    transition: width 0.3s;
 }
 
 h1 {
@@ -45,12 +47,32 @@ h1 {
     background: #4cae4c;
 }
 
-ul {
+/* View Switcher */
+.view-container {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+#view-switcher {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#view-switcher:hover {
+    background-color: #0056b3;
+}
+
+/* List View */
+#list-view ul {
     list-style: none;
     padding: 0;
 }
 
-li {
+#list-view li {
     background: #eee;
     padding: 10px;
     margin-bottom: 5px;
@@ -59,8 +81,22 @@ li {
     align-items: center;
 }
 
-li .edit-btn {
+#list-view .edit-btn {
     background: #f0ad4e;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+#list-view .edit-btn:hover {
+    background: #eea236;
+}
+
+#list-view .delete-btn {
+    background: #d9534f;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -68,6 +104,74 @@ li .edit-btn {
     padding: 5px 10px;
 }
 
-li .edit-btn:hover {
-    background: #eea236;
+#list-view .delete-btn:hover {
+    background: #c9302c;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Kanban View */
+#kanban-view {
+    display: flex;
+    justify-content: space-between;
+}
+
+.kanban-column {
+    background: #f4f4f4;
+    border-radius: 5px;
+    padding: 10px;
+    width: 32%;
+    min-height: 300px;
+}
+
+.kanban-column h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.kanban-cards {
+    min-height: 250px;
+}
+
+.kanban-card {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    cursor: grab;
+    position: relative;
+}
+
+.kanban-card .delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.kanban-card:hover .delete-btn {
+    opacity: 1;
+}
+
+.kanban-card.dragging {
+    opacity: 0.5;
+}
+
+.edit-input {
+    width: calc(100% - 20px);
+    border: 1px solid #ccc;
+    padding: 5px;
 }
