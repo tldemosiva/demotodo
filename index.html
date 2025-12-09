@@ -11,28 +11,10 @@
         <h1>Todo List</h1>
         <div class="input-container">
             <input type="text" id="todo-input" placeholder="Add a new todo...">
+            <input type="text" id="label-input" placeholder="Add a label...">
             <button id="add-btn">Add</button>
         </div>
-        <div class="view-container">
-            <button id="view-switcher">Kanban View</button>
-        </div>
-        <div id="list-view">
-            <ul id="todo-list"></ul>
-        </div>
-        <div id="kanban-view" class="hidden">
-            <div class="kanban-column">
-                <h2>To Do</h2>
-                <div class="kanban-cards" id="todo-column"></div>
-            </div>
-            <div class="kanban-column">
-                <h2>In Progress</h2>
-                <div class="kanban-cards" id="inprogress-column"></div>
-            </div>
-            <div class="kanban-column">
-                <h2>Done</h2>
-                <div class="kanban-cards" id="done-column"></div>
-            </div>
-        </div>
+        <ul id="todo-list"></ul>
     </div>
     <script src="script.js"></script>
 </body>
