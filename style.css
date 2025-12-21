@@ -37,17 +37,31 @@ h1 {
     flex: 0.5;
 }
 
-#add-btn {
+#add-btn, #group-btn {
     padding: 10px;
-    background: #5cb85c;
     color: #fff;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    flex-shrink: 0;
+}
+
+#add-btn {
+    background: #5cb85c;
 }
 
 #add-btn:hover {
     background: #4cae4c;
+}
+
+#group-btn {
+    background: #f0ad4e;
+    margin-left: 5px;
+    white-space: nowrap;
+}
+
+#group-btn:hover {
+    background: #eea236;
 }
 
 ul {
@@ -117,4 +131,19 @@ li .delete-btn {
 
 li .delete-btn:hover {
     background: #d43f3a;
+}
+
+.todo-group {
+    margin-bottom: 20px;
+}
+
+.todo-group h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.todo-group ul {
+    padding-left: 0;
 }
